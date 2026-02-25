@@ -1,0 +1,54 @@
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; }
+
+.c-head  { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+.c-lead  { font-size: 16px; font-weight: 300; color: var(--ink-60); line-height: 1.8; margin-bottom: 30px; }
+.c-links { display: flex; flex-direction: column; gap: 10px; }
+
+.c-link {
+  display: flex; align-items: center; gap: 14px;
+  padding: 15px 20px; border-radius: 10px;
+  border: 1px solid var(--cream); background: var(--white);
+  color: var(--ink); text-decoration: none; font-size: 14px; transition: all .25s;
+  &:hover { border-color: var(--teal); color: var(--teal); transform: translateX(4px); box-shadow: var(--shadow); }
+}
+.c-ico { font-size: 18px; flex-shrink: 0; }
+
+.form-card {
+  background: var(--white); border: 1px solid var(--cream);
+  border-radius: var(--radius); padding: 34px;
+  h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+  p  { font-size: 14px; color: var(--ink-60); margin-bottom: 26px; }
+}
+
+.c-form  { display: flex; flex-direction: column; gap: 14px; }
+.f-row   { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.f-ld {
+  label {
+    display: block; font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+    color: var(--ink-30); text-transform: uppercase; letter-spacing: .12em; margin-bottom: 7px;
+  }
+  input, textarea {
+    width: 100%; background: var(--off); border: 1.5px solid var(--cream);
+    color: var(--ink); padding: 12px 15px; border-radius: 8px;
+    font-family: var(--font-body); font-size: 14px; outline: none; transition: all .25s;
+    &:focus { border-color: var(--teal); background: var(--white); box-shadow: 0 0 0 3px rgba(12,184,158,.1); }
+    &::placeholder { color: var(--ink-30); }
+  }
+  textarea { height: 110px; resize: none; }
+}
+
+.btn-send {
+  align-self: flex-start; background: var(--teal); color: var(--navy);
+  padding: 13px 28px; border-radius: 10px; border: none; cursor: pointer;
+  font-family: var(--font-body); font-size: 15px; font-weight: 600;
+  display: flex; align-items: center; gap: 8px; transition: all .25s;
+  &:hover { background: #0aa891; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(12,184,158,.3); }
+  &.sent { background: #22c55e; color: #fff; }
+}
+.s-note { font-size: 13px; color: var(--teal); margin-top: 8px; }
+
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+  .f-row { grid-template-columns: 1fr; }
+}

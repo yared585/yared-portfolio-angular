@@ -1,0 +1,39 @@
+.edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 16px; margin-bottom: 48px; }
+
+.edu-card {
+  background: var(--white); border: 1px solid var(--cream);
+  border-radius: var(--radius); padding: 32px; transition: all .25s;
+  position: relative; overflow: hidden;
+
+  &::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: linear-gradient(90deg, var(--teal), var(--gold));
+  }
+  &:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+}
+
+.edu-badge {
+  display: inline-block; font-family: var(--font-mono); font-size: 11px;
+  padding: 4px 12px; border-radius: 100px;
+  background: var(--teal-lt); color: var(--teal); border: 1px solid rgba(12,184,158,.2);
+  margin-bottom: 16px;
+}
+.edu-deg { font-family: var(--font-display); font-size: 21px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.edu-sch { font-size: 14px; font-weight: 600; color: var(--teal); margin-bottom: 5px; }
+.edu-loc { font-size: 13px; color: var(--ink-60); margin-bottom: 4px; }
+.edu-yr  { font-family: var(--font-mono); font-size: 12px; color: var(--ink-30); }
+
+.cert-title {
+  font-family: var(--font-mono); font-size: 11px; color: var(--ink-60);
+  text-transform: uppercase; letter-spacing: .12em; margin-bottom: 14px;
+}
+.cert-list  { display: flex; flex-wrap: wrap; gap: 12px; }
+.cert-item  {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--white); border: 1px solid var(--cream);
+  border-radius: 10px; padding: 14px 20px; transition: all .25s;
+  &:hover { border-color: rgba(12,184,158,.3); box-shadow: var(--shadow); }
+}
+.cert-em   { font-size: 20px; }
+.cert-name { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.cert-meta { font-family: var(--font-mono); font-size: 11px; color: var(--ink-60); }

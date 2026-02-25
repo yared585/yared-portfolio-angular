@@ -1,0 +1,29 @@
+<div class="page-in">
+  <div class="ph">
+    <div class="ph-inner">
+      <div class="ph-eyebrow">Technical Arsenal</div>
+      <h1 class="ph-title">Core <em>Skills</em></h1>
+      <p class="ph-sub">20+ technologies across backend, frontend, cloud &amp; security</p>
+    </div>
+  </div>
+
+  <div class="ca">
+    <div class="cw">
+      <div class="skills-grid">
+        <div class="skill-card rv" *ngFor="let s of skills">
+          <span class="sk-icon">{{ s.icon }}</span>
+          <div class="sk-name">{{ s.name }}</div>
+          <div class="tags">
+            <span class="tag" *ngFor="let t of s.tags">{{ t }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span class="foot-logo">Yared<b>.</b></span>
+    <span class="foot-copy">© 2025 Yared Fesshaye</span>
+    <a class="foot-top" routerLink="/">↑ Home</a>
+  </footer>
+</div>

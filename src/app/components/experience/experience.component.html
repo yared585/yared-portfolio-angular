@@ -1,0 +1,43 @@
+<div class="page-in">
+  <div class="ph">
+    <div class="ph-inner">
+      <div class="ph-eyebrow">Work History</div>
+      <h1 class="ph-title">Work <em>Experience</em></h1>
+      <p class="ph-sub">6+ years · 3 companies · Federal, Fintech &amp; SaaS</p>
+    </div>
+  </div>
+
+  <div class="ca">
+    <div class="cw">
+      <div class="job rv" *ngFor="let j of jobs; let i = index">
+        <div class="j-head" (click)="toggle(i)">
+          <div>
+            <div class="j-co">{{ j.company }}</div>
+            <div class="j-role">{{ j.role }}</div>
+            <div class="j-loc">📍 {{ j.location }}</div>
+          </div>
+          <div class="j-meta">
+            <span class="j-period">{{ j.period }}</span>
+            <span class="j-tog" [class.on]="j.open">+</span>
+          </div>
+        </div>
+        <div class="j-body" [class.on]="j.open">
+          <div class="j-body-inner">
+            <ul class="j-bul">
+              <li *ngFor="let b of j.bullets">{{ b }}</li>
+            </ul>
+            <div class="j-tags">
+              <span class="j-tag" *ngFor="let t of j.tech">{{ t }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span class="foot-logo">Yared<b>.</b></span>
+    <span class="foot-copy">© 2025 Yared Fesshaye</span>
+    <a class="foot-top" routerLink="/">↑ Home</a>
+  </footer>
+</div>

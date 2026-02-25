@@ -1,0 +1,42 @@
+<div class="page-in">
+  <div class="ph">
+    <div class="ph-inner">
+      <div class="ph-eyebrow">Academic Background</div>
+      <h1 class="ph-title"><em>Education</em> &amp; Certs</h1>
+      <p class="ph-sub">University of Maryland · Montgomery College · Udemy</p>
+    </div>
+  </div>
+
+  <div class="ca">
+    <div class="cw">
+
+      <div class="edu-grid">
+        <div class="edu-card rv" *ngFor="let e of edu">
+          <span class="edu-badge">{{ e.badge }}</span>
+          <div class="edu-deg">{{ e.degree }}</div>
+          <div class="edu-sch">{{ e.school }}</div>
+          <div class="edu-loc">{{ e.location }}</div>
+          <div class="edu-yr">Graduated {{ e.year }}</div>
+        </div>
+      </div>
+
+      <div class="cert-title rv">Certifications &amp; Memberships</div>
+      <div class="cert-list">
+        <div class="cert-item rv" *ngFor="let c of certs">
+          <span class="cert-em">{{ c.icon }}</span>
+          <div>
+            <div class="cert-name">{{ c.name }}</div>
+            <div class="cert-meta">{{ c.issuer }} · {{ c.year }}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span class="foot-logo">Yared<b>.</b></span>
+    <span class="foot-copy">© 2025 Yared Fesshaye</span>
+    <a class="foot-top" routerLink="/">↑ Home</a>
+  </footer>
+</div>

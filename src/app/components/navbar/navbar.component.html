@@ -1,0 +1,14 @@
+<nav class="nav" [class.scrolled]="scrolled">
+  <div class="nav-inner">
+    <a class="logo" routerLink="/">Yared<b>.</b><small>Portfolio</small></a>
+    <ul class="nav-links">
+      <li *ngFor="let r of routes">
+        <a [routerLink]="r.path" routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: r.path === '/' }">
+          {{ r.label }}
+        </a>
+      </li>
+      <li><a class="nav-hire" routerLink="/contact">Hire Me</a></li>
+    </ul>
+  </div>
+</nav>

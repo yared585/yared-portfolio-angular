@@ -1,0 +1,76 @@
+<div class="page-in">
+  <div class="ph">
+    <div class="ph-inner">
+      <div class="ph-eyebrow">Let's Connect</div>
+      <h1 class="ph-title">Get in <em>Touch</em></h1>
+      <p class="ph-sub">Open to senior roles, consulting &amp; collaborations</p>
+    </div>
+  </div>
+
+  <div class="ca">
+    <div class="cw">
+      <div class="contact-grid">
+
+        <!-- Left info -->
+        <div class="rv">
+          <h2 class="c-head">Let's work together</h2>
+          <p class="c-lead">6+ years of full-stack Java expertise ready to contribute from day one. Open to senior engineering roles, consulting, and technical collaborations — remote or hybrid.</p>
+          <div class="c-links">
+            <a class="c-link" href="mailto:yared.fesshaye&#64;email.com">
+              <span class="c-ico">✉</span> yared.fesshaye&#64;email.com
+            </a>
+            <a class="c-link" href="https://linkedin.com/in/yared-fesshaye" target="_blank">
+              <span class="c-ico">🔗</span> linkedin.com/in/yared-fesshaye
+            </a>
+            <a class="c-link" href="https://github.com/yaredf" target="_blank">
+              <span class="c-ico">⌥</span> github.com/yaredf
+            </a>
+            <div class="c-link">
+              <span class="c-ico">📍</span> United States · Open to Remote
+            </div>
+          </div>
+        </div>
+
+        <!-- Right form -->
+        <div class="rv">
+          <div class="form-card">
+            <h3>Send a Message</h3>
+            <p>Fill out the form and I'll respond within 24 hours.</p>
+            <form class="c-form" #cf="ngForm" (ngSubmit)="send(cf)" novalidate>
+              <div class="f-row">
+                <div class="f-ld">
+                  <label>Your Name</label>
+                  <input type="text" name="name" [(ngModel)]="fm.name" placeholder="Jane Smith" required/>
+                </div>
+                <div class="f-ld">
+                  <label>Company</label>
+                  <input type="text" name="company" [(ngModel)]="fm.company" placeholder="Acme Corp"/>
+                </div>
+              </div>
+              <div class="f-ld">
+                <label>Email</label>
+                <input type="email" name="email" [(ngModel)]="fm.email" placeholder="jane@company.com" required/>
+              </div>
+              <div class="f-ld">
+                <label>Message</label>
+                <textarea name="message" [(ngModel)]="fm.message" placeholder="Tell me about the role or project..." required></textarea>
+              </div>
+              <button type="submit" class="btn-send" [class.sent]="fm.sent">
+                <span *ngIf="!fm.sent">Send Message →</span>
+                <span *ngIf="fm.sent">✓ Message Sent!</span>
+              </button>
+              <div class="s-note" *ngIf="fm.sent">✓ Thanks! I'll get back to you shortly.</div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span class="foot-logo">Yared<b>.</b></span>
+    <span class="foot-copy">© 2025 Yared Fesshaye</span>
+    <a class="foot-top" routerLink="/">↑ Home</a>
+  </footer>
+</div>
