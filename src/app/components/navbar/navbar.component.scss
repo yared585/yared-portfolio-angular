@@ -1,6 +1,6 @@
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-  height: 64px; display: flex; align-items: center;
+  height: 64px; display: flex; flex-direction: column; align-items: stretch;
   background: var(--navy);
   box-shadow: 0 1px 0 rgba(255,255,255,.07), 0 4px 20px rgba(0,0,0,.3);
   padding: 0 48px;
@@ -12,6 +12,7 @@
 .nav-inner {
   max-width: 1180px; width: 100%; margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between;
+  height: 64px; flex-shrink: 0;
 }
 
 .logo {
@@ -58,7 +59,88 @@
   }
 }
 
+/* Hamburger button */
+.hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+  border-radius: 8px;
+  transition: background .2s;
+
+  &:hover { background: rgba(255,255,255,.07); }
+
+  span {
+    display: block;
+    width: 22px; height: 2px;
+    background: rgba(255,255,255,.7);
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s;
+    transform-origin: center;
+  }
+
+  &.open {
+    span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+/* Mobile dropdown */
+.mobile-menu {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,.07);
+
+  &.open {
+    max-height: 420px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 12px 20px 16px;
+    margin: 0;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+
+  a {
+    display: block;
+    padding: 11px 14px; border-radius: 8px;
+    font-size: 15px; font-weight: 500;
+    color: rgba(255,255,255,.6);
+    text-decoration: none; transition: all .2s;
+
+    &:hover { color: #fff; background: rgba(255,255,255,.07); }
+    &.active { color: var(--teal); background: rgba(12,184,158,.1); }
+  }
+
+  .nav-hire {
+    margin-top: 6px;
+    text-align: center;
+  }
+}
+
+/* Backdrop */
+.menu-backdrop {
+  display: none;
+  position: fixed; inset: 0; z-index: 998;
+  background: rgba(0,0,0,.4);
+  opacity: 0;
+  transition: opacity .3s;
+
+  &.open {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 860px) {
-  .nav { padding: 0 20px; }
+  .nav { padding: 0 20px; height: auto; }
   .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .mobile-menu { display: block; }
+  .menu-backdrop { display: block; }
 }

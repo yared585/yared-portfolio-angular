@@ -7,6 +7,7 @@ import { Component, HostListener } from '@angular/core';
 })
 export class NavbarComponent {
   scrolled = false;
+  menuOpen = false;
 
   routes = [
     { path: '/',           label: 'Home'       },
@@ -19,5 +20,18 @@ export class NavbarComponent {
   @HostListener('window:scroll')
   onScroll(): void {
     this.scrolled = window.scrollY > 10;
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    this.closeMenu();
+  }
+
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu(): void {
+    this.menuOpen = false;
   }
 }

@@ -1,6 +1,8 @@
 <nav class="nav" [class.scrolled]="scrolled">
   <div class="nav-inner">
-    <a class="logo" routerLink="/">Yared<b>.</b><small>Portfolio</small></a>
+    <a class="logo" routerLink="/" (click)="closeMenu()">Yared<b>.</b><small>Portfolio</small></a>
+
+    <!-- Desktop links -->
     <ul class="nav-links">
       <li *ngFor="let r of routes">
         <a [routerLink]="r.path" routerLinkActive="active"
@@ -10,5 +12,29 @@
       </li>
       <li><a class="nav-hire" routerLink="/contact">Hire Me</a></li>
     </ul>
+
+    <!-- Hamburger button (mobile only) -->
+    <button class="hamburger" (click)="toggleMenu()" [class.open]="menuOpen" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile dropdown menu -->
+  <div class="mobile-menu" [class.open]="menuOpen">
+    <ul>
+      <li *ngFor="let r of routes">
+        <a [routerLink]="r.path" routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: r.path === '/' }"
+           (click)="closeMenu()">
+          {{ r.label }}
+        </a>
+      </li>
+      <li><a class="nav-hire" routerLink="/contact" (click)="closeMenu()">Hire Me</a></li>
+    </ul>
   </div>
 </nav>
+
+<!-- Backdrop -->
+<div class="menu-backdrop" [class.open]="menuOpen" (click)="closeMenu()"></div>
