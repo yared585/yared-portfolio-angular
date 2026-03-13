@@ -13,10 +13,15 @@ export class ExperienceComponent implements OnInit, AfterViewInit {
   constructor(private portfolioService: PortfolioService) {}
 
   ngOnInit(): void {
-    this.jobs = this.portfolioService.getExperience();
+    this.portfolioService.getExperience().subscribe(data => {
+      this.jobs = data;
+      setTimeout(() => this.observeElements());
+    });
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit(): void {}
+
+  private observeElements(): void {
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) setTimeout(() => e.target.classList.add('vis'), i * 80);

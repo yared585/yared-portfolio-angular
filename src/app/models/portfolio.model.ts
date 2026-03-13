@@ -1,10 +1,12 @@
 export interface Skill {
-  icon: string;
-  name: string;
-  tags: string[];
+  _id?:   string;
+  icon:   string;
+  name:   string;
+  tags:   string[];
 }
 
 export interface Experience {
+  _id?:     string;
   company:  string;
   role:     string;
   location: string;
@@ -15,6 +17,7 @@ export interface Experience {
 }
 
 export interface Education {
+  _id?:     string;
   badge:    string;
   degree:   string;
   school:   string;
@@ -23,6 +26,7 @@ export interface Education {
 }
 
 export interface Certification {
+  _id?:   string;
   icon:   string;
   name:   string;
   issuer: string;

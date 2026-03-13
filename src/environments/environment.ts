@@ -1,3 +1,4 @@
 export const environment = {
-  production: false
+  production: true,
+  apiUrl: 'https://yared-portfolio-backend.onrender.com/api'
 };

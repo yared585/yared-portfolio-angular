@@ -14,11 +14,19 @@ export class EducationComponent implements OnInit, AfterViewInit {
   constructor(private portfolioService: PortfolioService) {}
 
   ngOnInit(): void {
-    this.edu   = this.portfolioService.getEducation();
-    this.certs = this.portfolioService.getCertifications();
+    this.portfolioService.getEducation().subscribe(data => {
+      this.edu = data;
+      setTimeout(() => this.observeElements());
+    });
+    this.portfolioService.getCertifications().subscribe(data => {
+      this.certs = data;
+      setTimeout(() => this.observeElements());
+    });
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit(): void {}
+
+  private observeElements(): void {
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) setTimeout(() => e.target.classList.add('vis'), i * 80);

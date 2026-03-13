@@ -13,10 +13,15 @@ export class SkillsComponent implements OnInit, AfterViewInit {
   constructor(private portfolioService: PortfolioService) {}
 
   ngOnInit(): void {
-    this.skills = this.portfolioService.getSkills();
+    this.portfolioService.getSkills().subscribe(data => {
+      this.skills = data;
+      setTimeout(() => this.observeElements());
+    });
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit(): void {}
+
+  private observeElements(): void {
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) setTimeout(() => e.target.classList.add('vis'), i * 80);

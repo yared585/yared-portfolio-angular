@@ -16,8 +16,7 @@ const routes: Routes = [
   { path: 'experience', component: ExperienceComponent, title: 'Experience — Yared Fesshaye' },
   { path: 'education',  component: EducationComponent,  title: 'Education — Yared Fesshaye' },
   { path: 'contact',    component: ContactComponent,    title: 'Contact — Yared Fesshaye' },
- 
-  { path: '**',         component: NotFoundComponent, title: '404 Not Found — Yared Fesshaye' }
+  { path: '**',         component: NotFoundComponent,   title: '404 Not Found — Yared Fesshaye' }
 ];
 
 @NgModule({
