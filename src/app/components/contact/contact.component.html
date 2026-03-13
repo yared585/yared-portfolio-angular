@@ -55,11 +55,13 @@
                 <label>Message</label>
                 <textarea name="message" [(ngModel)]="fm.message" placeholder="Tell me about the role or project..." required></textarea>
               </div>
-              <button type="submit" class="btn-send" [class.sent]="fm.sent">
-                <span *ngIf="!fm.sent">Send Message →</span>
-                <span *ngIf="fm.sent">✓ Message Sent!</span>
+              <button type="submit" class="btn-send" [class.sent]="sent" [disabled]="loading">
+                <span *ngIf="!sent && !loading">Send Message →</span>
+                <span *ngIf="loading">Sending...</span>
+                <span *ngIf="sent">✓ Message Sent!</span>
               </button>
-              <div class="s-note" *ngIf="fm.sent">✓ Thanks! I'll get back to you shortly.</div>
+              <div class="s-note" *ngIf="sent">✓ Thanks! I'll get back to you shortly.</div>
+              <div class="s-note error" *ngIf="error">{{ error }}</div>
             </form>
           </div>
         </div>
