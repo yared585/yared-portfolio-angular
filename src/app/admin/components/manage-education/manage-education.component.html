@@ -1,0 +1,52 @@
+<div class="section-header">
+  <h1>Education</h1>
+  <button class="btn btn-primary" (click)="openAdd()">+ Add</button>
+</div>
+
+<p class="success-msg" *ngIf="message && !isError">{{ message }}</p>
+<p class="error-msg"   *ngIf="message && isError">{{ message }}</p>
+
+<div class="form-panel" *ngIf="showForm">
+  <h3>{{ editingId ? 'Edit Education' : 'Add Education' }}</h3>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Badge</label>
+      <input [(ngModel)]="form.badge" name="badge" placeholder="e.g. Bachelor's Degree" />
+    </div>
+    <div class="form-group">
+      <label>Degree</label>
+      <input [(ngModel)]="form.degree" name="degree" placeholder="e.g. B.S. in Computer Science" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>School</label>
+      <input [(ngModel)]="form.school" name="school" placeholder="e.g. University of Maryland" />
+    </div>
+    <div class="form-group">
+      <label>Year</label>
+      <input [(ngModel)]="form.year" name="year" placeholder="e.g. 2021" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Location</label>
+    <input [(ngModel)]="form.location" name="location" placeholder="e.g. Baltimore, MD" />
+  </div>
+  <div class="form-actions">
+    <button class="btn btn-primary" (click)="save()">{{ editingId ? 'Update' : 'Save' }}</button>
+    <button class="btn btn-ghost"   (click)="cancel()">Cancel</button>
+  </div>
+</div>
+
+<div class="card-list">
+  <div class="item-card" *ngFor="let item of items">
+    <div class="item-info">
+      <div class="item-title">{{ item.degree }}</div>
+      <div class="item-sub">{{ item.school }} — {{ item.year }}</div>
+    </div>
+    <div class="item-actions">
+      <button class="btn btn-ghost"  (click)="openEdit(item)">Edit</button>
+      <button class="btn btn-danger" (click)="delete(item._id!)">Delete</button>
+    </div>
+  </div>
+</div>

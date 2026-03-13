@@ -1,0 +1,45 @@
+<div class="section-header">
+  <h1>Skills</h1>
+  <button class="btn btn-primary" (click)="openAdd()">+ Add</button>
+</div>
+
+<p class="success-msg" *ngIf="message && !isError">{{ message }}</p>
+<p class="error-msg"   *ngIf="message && isError">{{ message }}</p>
+
+<div class="form-panel" *ngIf="showForm">
+  <h3>{{ editingId ? 'Edit Skill' : 'Add Skill' }}</h3>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Icon (emoji)</label>
+      <input [(ngModel)]="form.icon" name="icon" placeholder="e.g. ☕" />
+    </div>
+    <div class="form-group">
+      <label>Category Name</label>
+      <input [(ngModel)]="form.name" name="name" placeholder="e.g. Languages" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Tags</label>
+    <input #tagsInput [value]="tagsText()" placeholder="Java, Python, TypeScript" />
+    <small>Comma separated</small>
+  </div>
+  <div class="form-actions">
+    <button class="btn btn-primary" (click)="save(tagsInput.value)">
+      {{ editingId ? 'Update' : 'Save' }}
+    </button>
+    <button class="btn btn-ghost" (click)="cancel()">Cancel</button>
+  </div>
+</div>
+
+<div class="card-list">
+  <div class="item-card" *ngFor="let skill of skills">
+    <div class="item-info">
+      <div class="item-title">{{ skill.icon }} {{ skill.name }}</div>
+      <div class="item-sub">{{ skill.tags.join(', ') }}</div>
+    </div>
+    <div class="item-actions">
+      <button class="btn btn-ghost"  (click)="openEdit(skill)">Edit</button>
+      <button class="btn btn-danger" (click)="delete(skill._id!)">Delete</button>
+    </div>
+  </div>
+</div>

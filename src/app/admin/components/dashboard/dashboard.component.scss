@@ -1,0 +1,23 @@
+h1       { color: #f8fafc; font-size: 1.8rem; margin-bottom: 0.4rem; }
+.subtitle { color: #94a3b8; margin-bottom: 2rem; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.card {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: block;
+
+  &:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+
+  .icon { font-size: 2rem; display: block; margin-bottom: 0.75rem; }
+  h3    { color: #f8fafc; margin-bottom: 0.4rem; }
+  p     { color: #94a3b8; font-size: 0.875rem; }
+}

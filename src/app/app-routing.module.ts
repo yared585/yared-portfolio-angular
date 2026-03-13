@@ -16,6 +16,10 @@ const routes: Routes = [
   { path: 'experience', component: ExperienceComponent, title: 'Experience — Yared Fesshaye' },
   { path: 'education',  component: EducationComponent,  title: 'Education — Yared Fesshaye' },
   { path: 'contact',    component: ContactComponent,    title: 'Contact — Yared Fesshaye' },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
   { path: '**',         component: NotFoundComponent,   title: '404 Not Found — Yared Fesshaye' }
 ];
 

@@ -1,0 +1,21 @@
+<div class="login-page">
+  <div class="login-card">
+    <h1>Admin Login</h1>
+    <p>Yared Portfolio — Admin Panel</p>
+
+    <form (ngSubmit)="submit()">
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Enter admin password"
+        required
+        autofocus
+      />
+      <p class="error" *ngIf="error">{{ error }}</p>
+      <button type="submit" [disabled]="loading">
+        {{ loading ? 'Logging in...' : 'Login' }}
+      </button>
+    </form>
+  </div>
+</div>

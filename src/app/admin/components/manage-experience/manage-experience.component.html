@@ -1,0 +1,60 @@
+<div class="section-header">
+  <h1>Experience</h1>
+  <button class="btn btn-primary" (click)="openAdd()">+ Add</button>
+</div>
+
+<p class="success-msg" *ngIf="message && !isError">{{ message }}</p>
+<p class="error-msg"   *ngIf="message && isError">{{ message }}</p>
+
+<div class="form-panel" *ngIf="showForm">
+  <h3>{{ editingId ? 'Edit Experience' : 'Add Experience' }}</h3>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Company</label>
+      <input [(ngModel)]="form.company" name="company" placeholder="e.g. MasterCard" />
+    </div>
+    <div class="form-group">
+      <label>Role</label>
+      <input [(ngModel)]="form.role" name="role" placeholder="e.g. Software Developer" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Location</label>
+      <input [(ngModel)]="form.location" name="location" placeholder="e.g. Rockville, MD" />
+    </div>
+    <div class="form-group">
+      <label>Period</label>
+      <input [(ngModel)]="form.period" name="period" placeholder="e.g. Jan 2023 – Present" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Bullet Points</label>
+    <textarea #bulletsInput [value]="bulletsText()" placeholder="One bullet per line"></textarea>
+    <small>Each line becomes one bullet point</small>
+  </div>
+  <div class="form-group">
+    <label>Tech Tags</label>
+    <input #techInput [value]="techText()" placeholder="Java, Spring Boot, Docker" />
+    <small>Comma separated</small>
+  </div>
+  <div class="form-actions">
+    <button class="btn btn-primary" (click)="save(bulletsInput.value, techInput.value)">
+      {{ editingId ? 'Update' : 'Save' }}
+    </button>
+    <button class="btn btn-ghost" (click)="cancel()">Cancel</button>
+  </div>
+</div>
+
+<div class="card-list">
+  <div class="item-card" *ngFor="let job of jobs">
+    <div class="item-info">
+      <div class="item-title">{{ job.company }}</div>
+      <div class="item-sub">{{ job.role }} — {{ job.period }}</div>
+    </div>
+    <div class="item-actions">
+      <button class="btn btn-ghost"   (click)="openEdit(job)">Edit</button>
+      <button class="btn btn-danger"  (click)="delete(job._id!)">Delete</button>
+    </div>
+  </div>
+</div>
