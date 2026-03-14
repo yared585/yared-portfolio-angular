@@ -130,10 +130,12 @@
   position: fixed; inset: 0; z-index: 998;
   background: rgba(0,0,0,.4);
   opacity: 0;
+  pointer-events: none;
   transition: opacity .3s;
 
   &.open {
     opacity: 1;
+    pointer-events: auto;
   }
 }
 
