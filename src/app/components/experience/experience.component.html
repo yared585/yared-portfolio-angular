@@ -9,6 +9,7 @@
 
   <div class="ca">
     <div class="cw">
+      <p class="loading-msg" *ngIf="jobs.length === 0">Loading experience...</p>
       <div class="job rv" *ngFor="let j of jobs; let i = index">
         <div class="j-head" (click)="toggle(i)">
           <div>

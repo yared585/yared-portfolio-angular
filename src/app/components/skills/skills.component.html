@@ -9,6 +9,7 @@
 
   <div class="ca">
     <div class="cw">
+      <p class="loading-msg" *ngIf="skills.length === 0">Loading skills...</p>
       <div class="skills-grid">
         <div class="skill-card rv" *ngFor="let s of skills">
           <span class="sk-icon">{{ s.icon }}</span>

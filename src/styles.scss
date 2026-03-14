@@ -99,11 +99,21 @@ body {
   padding: 13px 26px; border-radius: 10px;
   font-family: var(--font-body); font-size: 15px; font-weight: 500;
   border: none; cursor: pointer; text-decoration: none; transition: all .25s;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent;
 }
 .btn-teal { background: var(--teal); color: var(--navy); }
 .btn-teal:hover { background: #0aa891; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(12,184,158,.35); }
 .btn-ghost { background: rgba(255,255,255,.08); color: #fff; border: 1px solid rgba(255,255,255,.14); }
 .btn-ghost:hover { background: rgba(255,255,255,.14); transform: translateY(-2px); }
+
+/* ── Loading message ─────────────────────── */
+.loading-msg {
+  color: rgba(255,255,255,.4);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 40px 0;
+  text-align: center;
+}
 
 /* ── Footer ──────────────────────────────── */
 .foot {
@@ -124,4 +134,11 @@ body {
 @media (max-width: 860px) {
   .ph, .ca { padding-left: 20px; padding-right: 20px; }
   .foot { padding: 20px; flex-direction: column; gap: 10px; text-align: center; }
+
+  /* Disable scroll-reveal on mobile — content always visible */
+  .rv {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

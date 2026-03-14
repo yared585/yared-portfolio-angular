@@ -31,7 +31,8 @@
   input, textarea {
     width: 100%; background: var(--off); border: 1.5px solid var(--cream);
     color: var(--ink); padding: 12px 15px; border-radius: 8px;
-    font-family: var(--font-body); font-size: 14px; outline: none; transition: all .25s;
+    font-family: var(--font-body); font-size: 16px; outline: none; transition: all .25s;
+    touch-action: manipulation; -webkit-tap-highlight-color: transparent;
     &:focus { border-color: var(--teal); background: var(--white); box-shadow: 0 0 0 3px rgba(12,184,158,.1); }
     &::placeholder { color: var(--ink-30); }
   }
@@ -43,6 +44,7 @@
   padding: 13px 28px; border-radius: 10px; border: none; cursor: pointer;
   font-family: var(--font-body); font-size: 15px; font-weight: 600;
   display: flex; align-items: center; gap: 8px; transition: all .25s;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent;
   &:hover { background: #0aa891; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(12,184,158,.3); }
   &.sent { background: #22c55e; color: #fff; }
 }
