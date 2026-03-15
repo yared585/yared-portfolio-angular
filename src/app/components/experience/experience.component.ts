@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { PortfolioService } from '../../services/portfolio.service';
 import { Experience } from '../../models/portfolio.model';
-import { retry } from 'rxjs';
 
 @Component({
   selector: 'app-experience',
@@ -10,29 +9,14 @@ import { retry } from 'rxjs';
 })
 export class ExperienceComponent implements OnInit, AfterViewInit {
   jobs: Experience[] = [];
-  loading = true;
-  error   = false;
 
   constructor(private portfolioService: PortfolioService) {}
 
-  ngOnInit(): void { this.load(); }
-
-  load(): void {
-    this.loading = true;
-    this.error   = false;
-    this.portfolioService.getExperience()
-      .pipe(retry({ count: 5, delay: 5000 }))
-      .subscribe({
-        next: data => {
-          this.jobs    = data;
-          this.loading = false;
-          setTimeout(() => this.observeElements());
-        },
-        error: () => {
-          this.loading = false;
-          this.error   = true;
-        }
-      });
+  ngOnInit(): void {
+    this.portfolioService.getExperience().subscribe(data => {
+      this.jobs = data;
+      setTimeout(() => this.observeElements());
+    });
   }
 
   ngAfterViewInit(): void {}

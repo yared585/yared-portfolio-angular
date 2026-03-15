@@ -9,10 +9,6 @@
 
   <div class="ca">
     <div class="cw">
-      <div class="data-state" *ngIf="loading">⏳ Loading skills...</div>
-      <div class="data-state error-state" *ngIf="error">
-        Failed to load. <button (click)="load()">Try Again</button>
-      </div>
       <div class="skills-grid">
         <div class="skill-card rv" *ngFor="let s of skills">
           <span class="sk-icon">{{ s.icon }}</span>

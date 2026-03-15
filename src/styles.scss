@@ -106,28 +106,6 @@ body {
 .btn-ghost { background: rgba(255,255,255,.08); color: #fff; border: 1px solid rgba(255,255,255,.14); }
 .btn-ghost:hover { background: rgba(255,255,255,.14); transform: translateY(-2px); }
 
-/* ── Loading / error state ───────────────── */
-.data-state {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  padding: 40px 0;
-  text-align: center;
-  color: var(--ink-60);
-
-  button {
-    margin-left: 10px;
-    padding: 6px 16px;
-    background: var(--teal);
-    color: var(--navy);
-    border: none;
-    border-radius: 6px;
-    font-size: 13px;
-    cursor: pointer;
-    touch-action: manipulation;
-  }
-}
-.error-state { color: #e53e3e; }
-
 /* ── Footer ──────────────────────────────── */
 .foot {
   background: var(--navy);

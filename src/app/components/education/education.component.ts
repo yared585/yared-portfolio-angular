@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { PortfolioService } from '../../services/portfolio.service';
 import { Education, Certification } from '../../models/portfolio.model';
-import { retry } from 'rxjs';
 
 @Component({
   selector: 'app-education',
@@ -9,37 +8,20 @@ import { retry } from 'rxjs';
   styleUrls: ['./education.component.scss']
 })
 export class EducationComponent implements OnInit, AfterViewInit {
-  edu:   Education[]      = [];
-  certs: Certification[]  = [];
-  loading = true;
-  error   = false;
+  edu:   Education[]     = [];
+  certs: Certification[] = [];
 
   constructor(private portfolioService: PortfolioService) {}
 
-  ngOnInit(): void { this.load(); }
-
-  load(): void {
-    this.loading = true;
-    this.error   = false;
-    this.portfolioService.getEducation()
-      .pipe(retry({ count: 5, delay: 5000 }))
-      .subscribe({
-        next: data => {
-          this.edu     = data;
-          this.loading = false;
-          setTimeout(() => this.observeElements());
-        },
-        error: () => { this.loading = false; this.error = true; }
-      });
-    this.portfolioService.getCertifications()
-      .pipe(retry({ count: 5, delay: 5000 }))
-      .subscribe({
-        next: data => {
-          this.certs = data;
-          setTimeout(() => this.observeElements());
-        },
-        error: () => {}
-      });
+  ngOnInit(): void {
+    this.portfolioService.getEducation().subscribe(data => {
+      this.edu = data;
+      setTimeout(() => this.observeElements());
+    });
+    this.portfolioService.getCertifications().subscribe(data => {
+      this.certs = data;
+      setTimeout(() => this.observeElements());
+    });
   }
 
   ngAfterViewInit(): void {}

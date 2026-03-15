@@ -9,10 +9,6 @@
 
   <div class="ca">
     <div class="cw">
-      <div class="data-state" *ngIf="loading">⏳ Loading experience...</div>
-      <div class="data-state error-state" *ngIf="error">
-        Failed to load. <button (click)="load()">Try Again</button>
-      </div>
       <div class="job rv" *ngFor="let j of jobs; let i = index">
         <div class="j-head" (click)="toggle(i)">
           <div>
